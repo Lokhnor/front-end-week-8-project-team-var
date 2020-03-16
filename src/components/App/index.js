@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import logo from "../../components/West-Midlands-CA.png";
 import ContractList from "../ContractList/ContractList";
 import Contract from "../Contract/Contract";
-import { SERVER_URL } from "../../config";
 
 //Dashboard Page
 //Should render list of contracts, each showing completion status (e.g. 1/3, 0/3)

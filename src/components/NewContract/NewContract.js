@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./newcontract.css";
+import { SERVER_URL } from "../../config";
 
 export default NewContract;
 function NewContract() {
@@ -21,7 +22,7 @@ function NewContract() {
       body: JSON.stringify(contract)
     };
     console.log(post);
-    fetch(`http://192.168.0.141:5000/contract`, post)
+    fetch(`${SERVER_URL}/contract`, post)
       .then(res => res.json())
       .then(data => setContract(data));
     alert("New Contract Added!");

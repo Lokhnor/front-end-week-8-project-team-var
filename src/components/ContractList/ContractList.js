@@ -4,7 +4,6 @@ import SearchBar from "../Search/SearchBar";
 import "./contractlist.css";
 import { SERVER_URL } from "../../config";
 
-
 //Should render a list of contract list items pulled from the DB. - Dooonnnee??
 // can use box to search and narrow down contract list - DONE!!
 
@@ -35,7 +34,7 @@ function ContractList() {
 
   return (
     <div>
-      <form action=`${SERVER_URL}/newcontract`>
+      <form action={`${SERVER_URL}/newcontract`}>
         <input className="cheatButton" type="submit" value="New Contract" />
       </form>
       <SearchBar handleChange={handleChange} />

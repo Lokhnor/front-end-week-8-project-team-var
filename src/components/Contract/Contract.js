@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CheckBox from "../CheckBox/CheckBox";
 import "./contract.css";
+import { SERVER_URL } from "../../config";
 
 //Should retrieve full contract info from the db - DONE
 //Show three sign off boxes (tick box?) to indicate depts which have signed off.
@@ -34,7 +35,7 @@ function Contract() {
   }
 
   useEffect(() => {
-    fetch(`http://192.168.0.141:5000/contract?id=${id}`)
+    fetch(`${SERVER_URL}/contract?id=${id}`)
       .then(response => {
         return response.json();
       })
@@ -45,12 +46,9 @@ function Contract() {
   }, []);
 
   async function handleDelete() {
-    const res = await fetch(
-      `http://192.168.0.141:5000/contract/${doc.contract_id}`,
-      {
-        method: "DELETE"
-      }
-    );
+    const res = await fetch(`${SERVER_URL}/contract/${doc.contract_id}`, {
+      method: "DELETE"
+    });
     alert("Contract Deleted!");
     console.log(res);
   }
