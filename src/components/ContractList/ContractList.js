@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import SearchBar from "../Search/SearchBar";
 import "./contractlist.css";
+import { SERVER_URL } from "../../config";
+
 
 //Should render a list of contract list items pulled from the DB. - Dooonnnee??
 // can use box to search and narrow down contract list - DONE!!
@@ -15,7 +17,7 @@ function ContractList() {
   const history = useHistory();
 
   useEffect(() => {
-    fetch(`http://192.168.0.141:5000/contract`)
+    fetch(`${SERVER_URL}/contract`)
       .then(response => {
         return response.json();
       })
@@ -33,7 +35,7 @@ function ContractList() {
 
   return (
     <div>
-      <form action="http://localhost:3000/newcontract">
+      <form action=`${SERVER_URL}/newcontract`>
         <input className="cheatButton" type="submit" value="New Contract" />
       </form>
       <SearchBar handleChange={handleChange} />
